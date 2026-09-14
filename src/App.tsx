@@ -78,6 +78,7 @@ function App() {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [regInterest, setRegInterest] = useState('');
   const [regStatus, setRegStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle');
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     document.title = 'SPARDHA 3.0';
@@ -260,7 +261,8 @@ function App() {
             <div className="section-intro"><p className="eyebrow"><span className="eyebrow-line" /> 02 / The multiplier</p><h2>Good brands<br /><span>back <em>bold</em> ideas.</span></h2></div>
             <p className="partners-sub">Associate your brand with Spardha 3.0 — reach 100+ high-achieving students, researchers, and young professionals across campus and digital platforms.</p>
           </div>
-          <div className="contact-section reveal">
+          <div className="partner-cta reveal"><span className="mini-label">Partner with Spardha 3.0</span><h3>Put your name<br />in the <em>mix.</em></h3><button className="button button-dark" onClick={() => setContactOpen(!contactOpen)}>Start a conversation <ArrowRight size={17} /></button></div>
+          {contactOpen && <div className="contact-section reveal">
             <div className="contact-header">
               <span className="contact-badge"><Users2 size={16} /> Contact & Coordination</span>
               <h3>Connect with the<br /><span>Spardha team.</span></h3>
@@ -272,7 +274,7 @@ function App() {
               <span className="contact-info-item"><Instagram size={14} /> @spardha.cbs</span>
               <span className="contact-info-item"><Globe size={14} /> spardhacbs.github.io/SPARDHA/</span>
             </div>
-          </div>
+          </div>}
         </section>
 
         <section className="highlight-strip section-grid reveal">
