@@ -72,8 +72,6 @@ function App() {
   const [selectedEvent, setSelectedEvent] = useState(events[0]);
   const [activeSection, setActiveSection] = useState('home');
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [regName, setRegName] = useState('');
-  const [regEmail, setRegEmail] = useState('');
   const [regInterest, setRegInterest] = useState('');
   const [regStatus, setRegStatus] = useState<'idle' | 'submitting' | 'done' | 'error'>('idle');
 
@@ -161,7 +159,7 @@ function App() {
 
   const handleEventRegistration = async () => {
     const formUrl = eventFormLinks[regInterest];
-    if (!formUrl || !regName || !regEmail) return;
+    if (!formUrl) return;
     setRegStatus('submitting');
     try {
       await fetch(APPS_SCRIPT_URL, {
@@ -169,8 +167,6 @@ function App() {
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: regName,
-          email: regEmail,
           event: regInterest,
           timestamp: new Date().toISOString(),
         }),
@@ -258,7 +254,7 @@ function App() {
         <section id="partners" className="partners-section section-grid">
           <div className="section-intro reveal"><p className="eyebrow"><span className="eyebrow-line" /> 02 / The multiplier</p><h2>Good brands<br /><span>back <em>bold</em> ideas.</span></h2></div>
           <div className="reasons-list">{reasons.map(([number, title, copy]) => <div className="reason reveal" key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><Check size={18} /></div>)}</div>
-          <div className="partner-cta reveal"><span className="mini-label">Partner with Spardha 3.0</span><h3>Put your name<br />in the <em>mix.</em></h3><button className="button button-dark" onClick={() => openRegister('Partnerships')}>Start a conversation <ArrowRight size={17} /></button></div>
+          <div className="partner-cta reveal"><span className="mini-label">Partner with Spardha 3.0</span><h3>Put your name<br />in the <em>mix.</em></h3><button className="button button-dark" onClick={() => openRegister()}>Start a conversation <ArrowRight size={17} /></button></div>
         </section>
 
         <section className="highlight-strip section-grid reveal">
@@ -340,7 +336,7 @@ function App() {
       </main>
 
       <footer className="site-footer"><div className="footer-brand"><img src={`${import.meta.env.BASE_URL}images/image.png`} alt="" /><span>SPARDHA 3.0</span></div><div className="footer-contact"><span><Mail size={14} /> spardhacbs@gmail.com</span><span><Phone size={14} /> +91 83045 90075</span></div><div className="footer-social"><a href="https://instagram.com" aria-label="Instagram"><Instagram size={17} /></a><button onClick={() => scrollTo('home')}>Back to top <ArrowDown size={15} /></button></div></footer>
-      {registerOpen && <div className="modal-backdrop" role="presentation" onClick={closeRegister}><div className="register-modal" role="dialog" aria-modal="true" aria-labelledby="register-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={closeRegister} aria-label="Close registration"><X size={20} /></button><p className="eyebrow"><span className="eyebrow-line" /> Your move</p><h2 id="register-title">Ready to<br /><em>play?</em></h2><p>Leave your details and the Spardha team will get you in the game.</p><form onSubmit={(event) => { event.preventDefault(); closeRegister(); }}><label>Full name<input required placeholder="Your name" value={regName} onChange={(e) => setRegName(e.target.value)} /></label><label>Email address<input required type="email" placeholder="you@example.com" value={regEmail} onChange={(e) => setRegEmail(e.target.value)} /></label><label>Choose your interest<select value={regInterest} onChange={(e) => { setRegInterest(e.target.value); setRegStatus('idle'); }}><option value="" disabled>Select one</option>{events.map((event) => <option key={event.name} value={event.name}>{event.name}</option>)}<option value="Partnerships">Partnerships</option></select></label>{regInterest && eventFormLinks[regInterest] && (<a className="event-reg-link" onClick={handleEventRegistration}>{`Proceed to ${regInterest} Registration`}<ArrowRight size={15} /></a>)}{regStatus === 'submitting' && <span className="reg-status">Sending your details…</span>}{regStatus === 'done' && <span className="reg-status">Details recorded. Opening form…</span>}{regStatus === 'error' && <span className="reg-status error">Could not reach the tracker, but the form will still open.</span>}<button className="button button-dark" type="submit">Send it <ArrowRight size={17} /></button></form></div></div>}
+      {registerOpen && <div className="modal-backdrop" role="presentation" onClick={closeRegister}><div className="register-modal" role="dialog" aria-modal="true" aria-labelledby="register-title" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={closeRegister} aria-label="Close registration"><X size={20} /></button><p className="eyebrow"><span className="eyebrow-line" /> Your move</p><h2 id="register-title">Ready to<br /><em>play?</em></h2><p>Pick your event and proceed to register.</p><form onSubmit={(event) => { event.preventDefault(); closeRegister(); }}><label>Choose your interest<select value={regInterest} onChange={(e) => { setRegInterest(e.target.value); setRegStatus('idle'); }}><option value="" disabled>Select one</option>{events.map((event) => <option key={event.name} value={event.name}>{event.name}</option>)}</select></label>{regInterest && eventFormLinks[regInterest] && (<a className="event-reg-link" onClick={handleEventRegistration}>{`Proceed to ${regInterest} Registration`}<ArrowRight size={15} /></a>)}{regStatus === 'submitting' && <span className="reg-status">Sending your details…</span>}{regStatus === 'done' && <span className="reg-status">Details recorded. Opening form…</span>}{regStatus === 'error' && <span className="reg-status error">Could not reach the tracker, but the form will still open.</span>}</form></div></div>}
     </div>
   );
 }
