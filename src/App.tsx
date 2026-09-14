@@ -7,6 +7,7 @@ import {
   BookOpen,
   CalendarDays,
   Check,
+  Globe,
   GraduationCap,
   Instagram,
   Mail,
@@ -44,10 +45,13 @@ const events = [
   { number: '06', name: 'Paper Presentation', type: 'Research spotlight', detail: 'Share a question worth asking and a perspective worth hearing.' },
 ];
 
-const reasons = [
-  ['01', 'Prestige', 'Associate your brand with a premier academic institution driving innovation and research.'],
-  ['02', 'Visibility', 'High-impact brand vision across campus, digital platforms, and every event touchpoint.'],
-  ['03', 'Reach', 'Connect with 100+ high-achieving students, researchers, and young professionals.'],
+const coordinators = [
+  { role: 'Technical Coordinator', name: 'Rahul K R', phone: '+91 8304950075' },
+  { role: 'Head Coordinator', name: 'Mariyam Susan Manoj', phone: '+91 7593027822' },
+  { role: 'Finance Coordinator', name: 'Rosmin Tresa', phone: '' },
+  { role: 'Sponsorship Coordinator', name: 'Anasooya N A', phone: '' },
+  { role: 'Marketing Coordinator', name: 'Aalfiya Khadeeja Araf', phone: '' },
+  { role: 'Media Coordinator', name: 'Jayakrishnan J R', phone: '' },
 ];
 
 const cbsPillars = [
@@ -251,10 +255,24 @@ function App() {
           <div className="event-detail reveal"><div><span className="eyebrow">Now viewing</span><h3>{selectedEvent.name}</h3><p>{selectedEvent.detail}</p></div><button className="button button-light" onClick={() => openRegister(selectedEvent.name)}>Enter this event <ArrowRight size={17} /></button></div>
         </section>
 
-        <section id="partners" className="partners-section section-grid">
-          <div className="section-intro reveal"><p className="eyebrow"><span className="eyebrow-line" /> 02 / The multiplier</p><h2>Good brands<br /><span>back <em>bold</em> ideas.</span></h2></div>
-          <div className="reasons-list">{reasons.map(([number, title, copy]) => <div className="reason reveal" key={number}><span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><Check size={18} /></div>)}</div>
-          <div className="partner-cta reveal"><span className="mini-label">Partner with Spardha 3.0</span><h3>Put your name<br />in the <em>mix.</em></h3><button className="button button-dark" onClick={() => openRegister()}>Start a conversation <ArrowRight size={17} /></button></div>
+        <section id="partners" className="partners-section">
+          <div className="partners-header section-grid reveal">
+            <div className="section-intro"><p className="eyebrow"><span className="eyebrow-line" /> 02 / The multiplier</p><h2>Good brands<br /><span>back <em>bold</em> ideas.</span></h2></div>
+            <p className="partners-sub">Associate your brand with Spardha 3.0 — reach 100+ high-achieving students, researchers, and young professionals across campus and digital platforms.</p>
+          </div>
+          <div className="contact-section reveal">
+            <div className="contact-header">
+              <span className="contact-badge"><Users2 size={16} /> Contact & Coordination</span>
+              <h3>Connect with the<br /><span>Spardha team.</span></h3>
+              <p>Reach out to our coordinators for sponsorship, partnerships, or any event-related queries.</p>
+            </div>
+            <div className="contact-grid">{coordinators.map((c) => <div className="contact-card" key={c.role}><span className="contact-role">{c.role}</span><span className="contact-name">{c.name}</span>{c.phone && <span className="contact-phone"><Phone size={13} /> {c.phone}</span>}</div>)}</div>
+            <div className="contact-footer">
+              <span className="contact-info-item"><Mail size={14} /> spardhacbs@gmail.com</span>
+              <span className="contact-info-item"><Instagram size={14} /> @spardha.cbs</span>
+              <span className="contact-info-item"><Globe size={14} /> spardhacbs.github.io/SPARDHA/</span>
+            </div>
+          </div>
         </section>
 
         <section className="highlight-strip section-grid reveal">

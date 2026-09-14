@@ -141,17 +141,26 @@ em { font-style: normal; color: #55b948; }
 .event-detail h3 { margin: 9px 0 7px; font: 500 24px 'Space Grotesk', sans-serif; color: #fff; }
 .event-detail p { margin: 0; max-width: 470px; color: rgba(255,255,255,.6); font-size: 13px; }
 .event-detail .button-light { color: #071d39; background: #fff; }
-.partners-section { padding-top: 150px; padding-bottom: 80px; gap: 70px 40px; }
-.partners-section .section-intro { grid-column: 1 / 6; }
-.reasons-list { grid-column: 7 / 13; }
-.reason { display: grid; grid-template-columns: 45px 1fr 18px; gap: 13px; padding: 21px 0; border-top: 1px solid #dfe3da; align-items: start; }
-.reason > span { color: #11a7cb; font: 11px 'DM Mono', monospace; }
-.reason h3 { margin: -4px 0 7px; color: #071d39; font: 600 17px 'Space Grotesk', sans-serif; }
-.reason p { margin: 0; color: #687487; font-size: 13px; line-height: 1.55; max-width: 420px; }
-.reason > svg { color: #55b948; }
-.partner-cta { grid-column: 7 / 13; background: #e5f2e4; padding: 34px 38px; display: flex; align-items: end; justify-content: space-between; gap: 30px; }
-.partner-cta h3 { margin: 13px 0 22px; color: #071d39; font: 500 34px/.95 'Space Grotesk', sans-serif; letter-spacing: -.06em; }
-.partner-cta .button { flex-shrink: 0; }
+.partners-section { padding-top: 150px; padding-bottom: 100px; }
+.partners-header { gap: 40px; align-items: end; margin-bottom: 60px; }
+.partners-header .section-intro { grid-column: 1 / 7; }
+.partners-sub { grid-column: 8 / 13; max-width: 340px; margin: 0 0 10px; color: #687487; font-size: 14px; line-height: 1.65; }
+.contact-section { max-width: calc(100% - clamp(40px,14vw,220px)); margin: 0 auto; background: #071d39; border-radius: 24px; padding: 50px clamp(28px,5vw,60px); }
+.contact-header { margin-bottom: 36px; }
+.contact-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 99px; background: rgba(98,208,204,.15); color: #62d0cc; font: 10px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .12em; }
+.contact-header h3 { margin: 18px 0 12px; color: #fff; font: 600 clamp(28px, 3.5vw, 44px)/1 'Space Grotesk', sans-serif; letter-spacing: -.05em; }
+.contact-header h3 span { color: #62d0cc; }
+.contact-header p { margin: 0; color: #a6b2c2; font-size: 14px; line-height: 1.6; max-width: 420px; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.contact-card { display: flex; flex-direction: column; gap: 6px; padding: 24px 22px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; transition: transform .3s ease, background .3s ease, border-color .3s ease; }
+.contact-card:hover { transform: translateY(-5px); background: rgba(255,255,255,.09); border-color: rgba(98,208,204,.3); }
+.contact-role { color: #62d0cc; font: 9px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .1em; }
+.contact-name { color: #fff; font: 600 17px 'Space Grotesk', sans-serif; letter-spacing: -.02em; }
+.contact-phone { display: flex; align-items: center; gap: 7px; margin-top: 4px; color: #a6b2c2; font: 12px 'DM Mono', monospace; }
+.contact-phone svg { color: #55b948; flex-shrink: 0; }
+.contact-footer { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.12); }
+.contact-info-item { display: flex; align-items: center; gap: 9px; color: #a6b2c2; font: 12px 'DM Mono', monospace; }
+.contact-info-item svg { color: #11a7cb; flex-shrink: 0; }
 
 .schedule-strip { padding-top: 80px; padding-bottom: 100px; gap: 50px 40px; align-items: start; }
 .schedule-intro { grid-column: 1 / 5; }
@@ -253,10 +262,11 @@ em { font-style: normal; color: #55b948; }
   .event-detail { display: block; }
   .event-detail .button { margin-top: 22px; }
   .partners-section { display: block; padding-top: 100px; padding-bottom: 80px; }
-  .partners-section .section-intro { margin-bottom: 55px; }
-  .reasons-list { display: block; }
-  .partner-cta { margin-top: 50px; display: block; padding: 28px 24px; }
-  .partner-cta .button { margin-top: 8px; }
+  .partners-header { display: block; margin-bottom: 40px; }
+  .partners-sub { margin-top: 25px; }
+  .contact-section { padding: 36px 22px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-footer { gap: 16px; }
   .schedule-strip { display: block; padding-top: 60px; padding-bottom: 70px; }
   .schedule-days { grid-template-columns: 1fr; margin-top: 30px; }
   .highlight-strip { display: block; padding-top: 80px; padding-bottom: 80px; }
