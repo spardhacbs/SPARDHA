@@ -25,11 +25,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const eventFormLinks: Record<string, string> = {
   'IPL Auction': 'https://forms.gle/ra4yJpgrsRf96Ux29',
-  'Best Economist Team': 'https://forms.gle/tR3wBEeSn284nLWq6',
-  'Debate': 'https://forms.gle/xJo3s1AdFhE7jABn8',
-  'Quiz': 'https://forms.gle/RSRxUhmzFQPKVCbL6',
+  'Best Economist Team': 'https://forms.gle/tR3wBEe5n284nLWq6',
+  'Debate': 'https://forms.gle/RSrXUhmzFQPKVCbL6',
+  'Quiz': 'https://forms.gle/rP5eAExQagfuWAYx6',
   'Treasure Hunt': 'https://forms.gle/xJo3s1AdFhF7jABn8',
-  'Paper Presentation': 'https://forms.gle/rP5eAExQagfuWAYx6',
+  'Paper Presentation': 'https://forms.gle/P6gi9oYUmSaQCrue6',
 };
 
 // Replace this with your deployed Google Apps Script web app URL.
