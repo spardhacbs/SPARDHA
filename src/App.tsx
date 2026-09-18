@@ -48,10 +48,10 @@ const events = [
 const coordinators = [
   { role: 'Technical Coordinator', name: 'Rahul K R', phone: '+91 8304950075' },
   { role: 'Head Coordinator', name: 'Mariyam Susan Manoj', phone: '+91 7593027822' },
-  { role: 'Finance Coordinator', name: 'Rosmin Tresa', phone: '' },
-  { role: 'Sponsorship Coordinator', name: 'Anasooya N A', phone: '' },
-  { role: 'Marketing Coordinator', name: 'Aalfiya Khadeeja Araf', phone: '' },
-  { role: 'Media Coordinator', name: 'Jayakrishnan J R', phone: '' },
+  { role: 'Finance Coordinator', name: 'Rosmin Tresa', phone: '+91 9496105509' },
+  { role: 'Sponsorship Coordinator', name: 'Anasooya N A', phone: '+91 8590196287' },
+  { role: 'Marketing Coordinator', name: 'Aalfiya Khadeeja Araf', phone: '+91 9947262277' },
+  { role: 'Media Coordinator', name: 'Jayakrishnan J R', phone: '+91 8590431237' },
 ];
 
 const cbsPillars = [
