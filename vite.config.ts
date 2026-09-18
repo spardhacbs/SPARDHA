@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/SPARDHA_PHASE_II/',
+  base: '/SPARDHA_BACKUP/',
   plugins: [react()],
   resolve: {
     alias: {
